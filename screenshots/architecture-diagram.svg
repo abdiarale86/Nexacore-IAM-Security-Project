@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="640" fill="#ffffff"/>
+
+  <!-- top row connectors -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <path d="M330 90 H430"/>
+    <path d="M770 90 H870"/>
+  </g>
+
+  <!-- Management Account (retired) -->
+  <g>
+    <rect x="90" y="40" width="240" height="100" rx="12" fill="#64748b"/>
+    <text x="210" y="80" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">Management Account</text>
+    <text x="210" y="99" text-anchor="middle" fill="#e2e8f0" font-size="11">(no longer used)</text>
+    <text x="210" y="120" text-anchor="middle" fill="#e2e8f0" font-size="11">MFA + AWS Secrets Manager</text>
+  </g>
+
+  <!-- All Users -->
+  <g>
+    <rect x="430" y="40" width="180" height="100" rx="12" fill="#334155"/>
+    <text x="520" y="85" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">All Users (10)</text>
+    <text x="520" y="106" text-anchor="middle" fill="#e2e8f0" font-size="11">Individual accounts</text>
+  </g>
+
+  <!-- MFA + Password Policy -->
+  <g>
+    <rect x="870" y="40" width="240" height="100" rx="12" fill="#7c3aed"/>
+    <text x="990" y="80" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">MFA Enforced</text>
+    <text x="990" y="99" text-anchor="middle" fill="#ede9fe" font-size="11">AWS IAM Password Policy</text>
+    <text x="990" y="118" text-anchor="middle" fill="#ede9fe" font-size="11">14-char min, 90-day rotation</text>
+  </g>
+
+  <!-- connectors down to groups -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <path d="M180 195 V220 H180"/>
+    <path d="M180 140 V225"/>
+    <path d="M480 140 V225"/>
+    <path d="M760 140 V225"/>
+    <path d="M1030 140 V225"/>
+  </g>
+
+  <!-- Developers -->
+  <g>
+    <rect x="30" y="230" width="300" height="230" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="180" y="262" text-anchor="middle" fill="#5b21b6" font-size="16" font-weight="700">Developers</text>
+    <text x="180" y="284" text-anchor="middle" fill="#6d28d9" font-size="12">dev-1 · dev-2 · dev-3 · dev-4</text>
+    <text x="55" y="312" fill="#4c1d95" font-size="11" font-weight="600">Actions</text>
+    <text x="55" y="330" fill="#4c1d95" font-size="10.5">ec2:StartInstances</text>
+    <text x="55" y="345" fill="#4c1d95" font-size="10.5">ec2:StopInstances</text>
+    <text x="55" y="360" fill="#4c1d95" font-size="10.5">ec2:RebootInstances</text>
+    <text x="55" y="375" fill="#4c1d95" font-size="10.5">s3:GetObject / PutObject</text>
+    <text x="55" y="390" fill="#4c1d95" font-size="10.5">s3:DeleteObject / ListBucket</text>
+    <text x="55" y="405" fill="#4c1d95" font-size="10.5">CloudWatchLogsReadOnlyAccess</text>
+  </g>
+
+  <!-- Operations -->
+  <g>
+    <rect x="345" y="230" width="300" height="230" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="495" y="262" text-anchor="middle" fill="#166534" font-size="16" font-weight="700">Operations</text>
+    <text x="495" y="284" text-anchor="middle" fill="#15803d" font-size="12">ops-1 · ops-2</text>
+    <text x="370" y="312" fill="#14532d" font-size="11" font-weight="600">Policies</text>
+    <text x="370" y="330" fill="#14532d" font-size="10.5">AmazonEC2FullAccess</text>
+    <text x="370" y="345" fill="#14532d" font-size="10.5">AmazonRDSFullAccess</text>
+    <text x="370" y="360" fill="#14532d" font-size="10.5">AWSSystemsManagerFullAccess</text>
+  </g>
+
+  <!-- Finance -->
+  <g>
+    <rect x="660" y="230" width="220" height="230" rx="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="770" y="262" text-anchor="middle" fill="#9a3412" font-size="16" font-weight="700">Finance</text>
+    <text x="770" y="284" text-anchor="middle" fill="#c2410c" font-size="12">fin-1</text>
+    <text x="685" y="312" fill="#7c2d12" font-size="11" font-weight="600">Policy</text>
+    <text x="685" y="330" fill="#7c2d12" font-size="10.5">AWSBillingReadOnlyAccess</text>
+  </g>
+
+  <!-- Data Analysts -->
+  <g>
+    <rect x="895" y="230" width="275" height="230" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="1032" y="262" text-anchor="middle" fill="#1e3a8a" font-size="16" font-weight="700">Data Analysts</text>
+    <text x="1032" y="284" text-anchor="middle" fill="#1d4ed8" font-size="12">analyst-1 · analyst-2 · analyst-3</text>
+    <text x="920" y="312" fill="#1e3a8a" font-size="11" font-weight="600">Policies</text>
+    <text x="920" y="330" fill="#1e3a8a" font-size="10.5">AmazonS3ReadOnlyAccess</text>
+    <text x="920" y="345" fill="#1e3a8a" font-size="10.5">AmazonRDSReadOnlyAccess</text>
+  </g>
+</svg>
