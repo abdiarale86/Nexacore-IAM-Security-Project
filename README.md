@@ -42,9 +42,13 @@ NexaCore Solutions (a hypothetical company) had ~10 employees sharing a single A
 ## 💡 What I Learned
 
 ✅ IAM group/user/policy design in Terraform
+
 ✅ Writing least-privilege JSON policies with `jsonencode()`
+
 ✅ Scaling repetitive resources with `for_each` instead of copy-pasting blocks
+
 ✅ Configuring CloudTrail for account-wide audit logging, including the S3 bucket policy CloudTrail needs to actually write logs
+
 ✅ Testing IAM policies against real AWS resources and the AWS Policy Simulator
 
 ## 📁 Project Structure
