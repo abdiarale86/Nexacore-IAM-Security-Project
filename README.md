@@ -16,7 +16,7 @@ NexaCore Solutions (a hypothetical company) had ~10 employees sharing a single A
 
 ## 🏗️ Architecture
 
-![Architecture Diagram](screenshots/architecture-diagram.svg)
+<img width="720" height="248" alt="image" src="https://github.com/user-attachments/assets/68627c78-3947-42d6-80aa-26bb1e5d1272" />
 
 **Model:** Shared root account (retired) → individual IAM users, all MFA-enforced under an account-wide password policy → grouped into Developers, Operations, Finance, and Data Analysts, each scoped to a least-privilege policy for their role → all activity captured account-wide by CloudTrail.
 
