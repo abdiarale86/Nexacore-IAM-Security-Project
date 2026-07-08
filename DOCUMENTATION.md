@@ -1,5 +1,8 @@
 # Implementing Secure IAM for NexaCore Solutions with Terraform
 
+<img width="720" height="248" alt="image" src="https://github.com/user-attachments/assets/be48a297-e3db-4302-b21f-df0de25d1059" />
+
+
 ## 📌 Current Situation / Challenge
 
 NexaCore Solutions (a hypothetical company) had around 10 employees, all sharing a single AWS root account. Credentials were being passed around through tools like Microsoft Teams and Slack, creating a major security risk and zero accountability.
@@ -93,6 +96,8 @@ By the end of this project:
 Before writing a single resource block, I mapped out what each team at NexaCore actually needs, instead of guessing permissions or defaulting to broad access.
 
 **Access Design Overview**
+<img width="720" height="228" alt="image" src="https://github.com/user-attachments/assets/b364b5b3-9aa5-401f-aa29-bf467fe279fd" />
+
 
 - **Developers (4 users)** — EC2 and S3 access scoped to development resources only, plus read-only CloudWatch logs for debugging. No production access.
 - **Operations (2 users)** — Full infrastructure management (EC2, RDS, CloudWatch, logs, S3), but explicitly no ability to modify IAM policies, to prevent privilege escalation.
@@ -205,6 +210,8 @@ resource "aws_iam_user_group_membership" "analyst_membership" {
 Breaking it down: `for_each = aws_iam_user.developers` loops through every developer user already created, `each.value.name` pulls the username, and `groups = [...]` assigns that user to the right group. In production you never want to manage permissions per-user — you assign permissions to groups, then assign users to groups. A new developer joining just means adding a name to a list; nobody touches permissions directly.
 
 ### Step 4: Writing IAM Policies
+<img width="720" height="228" alt="image" src="https://github.com/user-attachments/assets/729f6270-1d71-4148-b729-be86ea16d4c1" />
+
 
 With groups and users in place, the next step was defining what each group can actually do. Groups without policies are just empty containers — the policy is what gives access its shape.
 
@@ -544,6 +551,7 @@ terraform validate
 terraform plan
 terraform apply
 ```
+<img width="488" height="636" alt="image" src="https://github.com/user-attachments/assets/e2ef18d0-7b04-46f6-82a8-e57a06912213" />
 
 `validate` catches syntax and reference errors before anything touches AWS. `plan` shows exactly what will be created or changed, which matters most here since IAM mistakes are the kind of thing you want to catch before they're live. `apply` then creates the users, groups, memberships, policies, CloudTrail trail, and S3 buckets in one pass.
 
@@ -557,10 +565,15 @@ aws_region  = "us-east-1"
 ```
 
 Using Terraform instead of clicking through the console makes the whole IAM setup repeatable, version-controlled, easy to audit, and easy to rebuild from scratch if the account ever needed to be recreated.
+<img width="490" height="393" alt="image" src="https://github.com/user-attachments/assets/e78fe7df-4af6-48d1-adf6-58214627dda4" />
+
 
 ## 5. Testing
+<img width="514" height="374" alt="image" src="https://github.com/user-attachments/assets/6d3341de-836a-4048-9d56-cbb8efee6645" />
+
 
 After deployment, the real work is confirming access controls behave exactly as designed — both what's allowed and what's denied.
+
 
 **Test plan by role:**
 
@@ -572,6 +585,8 @@ After deployment, the real work is confirming access controls behave exactly as 
 I logged in as each user individually and validated both sides of that matrix against real AWS resources, confirming MFA registration succeeded for every account and that denied actions actually surfaced as `AccessDenied` rather than silently failing for an unrelated reason.
 
 ## Monitoring with CloudTrail
+<img width="1908" height="862" alt="image" src="https://github.com/user-attachments/assets/03bcedf9-180b-4771-943f-65616a252e49" />
+
 
 Once access controls were live, CloudTrail became the way to verify them rather than just trust them. Reviewing the logs confirmed:
 
